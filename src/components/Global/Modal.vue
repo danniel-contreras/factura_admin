@@ -29,6 +29,9 @@
             >
               <DialogTitle as="h3" class="text-lg font-medium leading-6 text-gray-900">
                 {{ title }}
+                <button @click="emits('closeModal')" class="float-right cursor-pointer">
+                  <oh-vue-icon class="outline-none text-xl" name="fa-times"></oh-vue-icon>
+                </button>
               </DialogTitle>
               <div class="w-full h-1 border-t mt-2"></div>
               <div class="w-full">
@@ -43,7 +46,6 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue";
 import {
   TransitionRoot,
   TransitionChild,
@@ -51,6 +53,7 @@ import {
   DialogPanel,
   DialogTitle,
 } from "@headlessui/vue";
+import OhVueIcon from "../../plugins/vue-icons"
 
 interface Props {
   isOpen: boolean;

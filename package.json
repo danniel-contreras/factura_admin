@@ -10,9 +10,15 @@
   },
   "dependencies": {
     "@headlessui/vue": "^1.7.12",
+    "axios": "^1.3.5",
     "oh-vue-icons": "^1.0.0-rc3",
+    "pinia": "^2.0.34",
+    "pinia-persist": "^0.1.0",
+    "vee-validate": "^4.8.4",
     "vue": "^3.2.47",
-    "vue-router": "^4.1.6"
+    "vue-router": "^4.1.6",
+    "vue3-toastify": "^0.1.6",
+    "yup": "^1.0.2"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.1.0",
