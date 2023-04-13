@@ -25,7 +25,9 @@
             leave-to="opacity-0 scale-95"
           >
             <DialogPanel
-              class="w-full max-w-lg transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all"
+              id="modal"
+              class="transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all"
+              :class="`w-[${size}]`"
             >
               <DialogTitle as="h3" class="text-lg font-medium leading-6 text-gray-900">
                 {{ title }}
@@ -53,11 +55,12 @@ import {
   DialogPanel,
   DialogTitle,
 } from "@headlessui/vue";
-import OhVueIcon from "../../plugins/vue-icons"
+import OhVueIcon from "../../plugins/vue-icons";
 
 interface Props {
   isOpen: boolean;
   title: string;
+  size: string;
 }
 
 type Emits = {
@@ -66,5 +69,5 @@ type Emits = {
 
 const emits = defineEmits<Emits>();
 
-const { isOpen, title } = defineProps<Props>();
+const { isOpen, title, size } = defineProps<Props>();
 </script>
