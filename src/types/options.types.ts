@@ -3,7 +3,7 @@ import { PageI } from "./pages.types";
 export interface OptionsI {
   optionName: string;
   optionIcon: string;
-  idPage: number;
+  path: string;
 }
 
 export interface Option {
@@ -12,7 +12,5 @@ export interface Option {
   optionIcon: string;
   createdAt: string;
   updatedAt: string;
-  idMenu: number;
-  idPage: number;
-  page: PageI;
+  path:string
 }

@@ -15,7 +15,7 @@ export const UseMenusStore = defineStore("menus", {
       console.log(result);
       if (result.ok) {
         const filter_options = options.filter(
-          (fl) => fl.idPage > 0 && fl.optionIcon !== "" && fl.optionName !== ""
+          (fl) => fl.path !== "" && fl.optionIcon !== "" && fl.optionName !== ""
         );
         filter_options.forEach(async (fl) => {
           await save_option(fl, result.result.idMenu);

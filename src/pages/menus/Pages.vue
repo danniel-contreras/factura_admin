@@ -82,6 +82,7 @@ import OhVueIcon from "../../plugins/vue-icons";
 import { UsePagesStore } from "../../store/pages.store";
 import { ref, onMounted } from 'vue';
 
+
 const isOpen = ref(false);
 
 const { GetAllPages } = UsePagesStore();

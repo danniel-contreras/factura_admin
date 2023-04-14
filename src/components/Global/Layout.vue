@@ -52,14 +52,19 @@
         class="text-left text-sm mt-2 w-4/5 mx-auto text-gray-200 font-bold"
         id="submenu"
       >
-        <h1 class="cursor-pointer p-2 hover:bg-blue-600 rounded-md mt-1">Permisos</h1>
+        <!-- <h1 class="cursor-pointer p-2 hover:bg-blue-600 rounded-md mt-1">Permisos</h1> -->
         <router-link
-          to="/pages"
+          to="/menus"
           active-class="bg-blue-600"
           class="cursor-pointer p-2 hover:bg-blue-600 flex w-full rounded-md mt-1"
-          >Paginas</router-link
+          >Menus</router-link
         >
-        <h1 class="cursor-pointer p-2 hover:bg-blue-600 rounded-md mt-1">Menus</h1>
+        <router-link
+          to="/options"
+          active-class="bg-blue-600"
+          class="cursor-pointer p-2 hover:bg-blue-600 flex w-full rounded-md mt-1"
+          >Opciones</router-link
+        >
       </div>
       <div
         class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white"

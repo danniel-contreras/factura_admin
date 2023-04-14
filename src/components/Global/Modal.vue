@@ -26,8 +26,7 @@
           >
             <DialogPanel
               id="modal"
-              class="transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all"
-              :class="`w-[${size}]`"
+              class="transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all w-auto"
             >
               <DialogTitle as="h3" class="text-lg font-medium leading-6 text-gray-900">
                 {{ title }}
@@ -36,7 +35,7 @@
                 </button>
               </DialogTitle>
               <div class="w-full h-1 border-t mt-2"></div>
-              <div class="w-full">
+              <div class="w-auto">
                 <slot />
               </div>
             </DialogPanel>
@@ -60,7 +59,6 @@ import OhVueIcon from "../../plugins/vue-icons";
 interface Props {
   isOpen: boolean;
   title: string;
-  size: string;
 }
 
 type Emits = {
@@ -69,5 +67,5 @@ type Emits = {
 
 const emits = defineEmits<Emits>();
 
-const { isOpen, title, size } = defineProps<Props>();
+const { isOpen, title } = defineProps<Props>();
 </script>

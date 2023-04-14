@@ -4,14 +4,15 @@ const routes: RouteRecordRaw[] = [{
     name: "Home",
     path: "",
     component: () => import("../pages/home/Home.vue")
-}, {
-    name: "Pages",
-    path: "/pages",
-    component: () => import("../pages/menus/Pages.vue")
 },{
     name: "Menus",
     path: "/menus",
     component: () => import("../pages/menus/Menus.vue")
+},
+{
+    name: "Options",
+    path: "/options",
+    component: () => import("../pages/menus/Options.vue")
 }]
 
 const router = createRouter({

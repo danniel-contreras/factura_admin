@@ -39,12 +39,16 @@
               </div>
             </div>
           </DisclosureButton>
-          <DisclosurePanel class="px-12 pt-4 pb-2 text-sm text-gray-500 border rounded-b-lg">
+          <DisclosurePanel
+            class="px-12 pt-4 pb-2 text-sm text-gray-500 border rounded-b-lg"
+          >
             <div v-if="menu.options.length <= 0">
-              <p class="text-sm text-gray-600 font-semibold">Este menu no tiene opciones agregadas</p>
+              <p class="text-sm text-gray-600 font-semibold">
+                Este menu no tiene opciones agregadas
+              </p>
             </div>
             <div v-else class="border">
-              <div  class="w-full grid grid-cols-6 p-2 rounded-t bg-cyan-700">
+              <div class="w-full grid grid-cols-6 p-2 rounded-t bg-cyan-700">
                 <p class="text-white text-sm font-semibold">No.</p>
                 <p class="text-white text-sm font-semibold">Opcion</p>
                 <p class="text-white text-sm font-semibold">Icono</p>
@@ -52,15 +56,19 @@
                 <p class="text-white text-sm font-semibold">Pagina</p>
                 <p class="text-white text-sm font-semibold">Opciones</p>
               </div>
-             
-              <div v-for="(op,i) in menu.options" :key="i" class="grid grid-cols-6 border-b p-2">
-                <p class="text-gray-600 text-sm font-thin">{{i + 1}}</p>
-                <p class="text-gray-600 text-sm font-thin">{{op.optionName}}</p>
+
+              <div
+                v-for="(op, i) in menu.options"
+                :key="i"
+                class="grid grid-cols-6 border-b p-2"
+              >
+                <p class="text-gray-600 text-sm font-thin">{{ i + 1 }}</p>
+                <p class="text-gray-600 text-sm font-thin">{{ op.optionName }}</p>
                 <p class="text-gray-600 text-sm font-thin">
                   <oh-vue-icon :name="op.optionIcon"></oh-vue-icon>
                 </p>
-                <p class="text-gray-600 text-sm font-thin">{{op.page.pagePath}}</p>
-                <p class="text-gray-600 text-sm font-thin">{{op.page.pageName}}</p>
+                <p class="text-gray-600 text-sm font-thin">{{ op.page.pagePath }}</p>
+                <p class="text-gray-600 text-sm font-thin">{{ op.page.pageName }}</p>
                 <p class="text-gray-600 text-sm font-thin"></p>
               </div>
             </div>
@@ -157,7 +165,7 @@
             <div class="grid grid-cols-3 gap-5">
               <p class="text-sm text-gray-600 font-semibold">Nombre de la opcion</p>
               <p class="text-sm text-gray-600 font-semibold">Icono de la opcion</p>
-              <p class="text-sm text-gray-600 font-semibold">Pagina de la opcion</p>
+              <p class="text-sm text-gray-600 font-semibold">Ruta de la opcion</p>
             </div>
             <div class="py-1" v-for="(_, index) in options" :key="index">
               <div class="grid grid-cols-3 gap-5">
@@ -172,19 +180,11 @@
                   class="w-full border p-3 shadow rounded outline-none"
                 />
                 <div class="w-full flex">
-                  <select
-                    v-model="options[index].idPage"
+                  <input
+                    v-model="options[index].path"
+                    placeholder="Escribe el icono de la opcion"
                     class="w-full border p-3 shadow rounded outline-none"
-                  >
-                    <option value="0" disabled>--Selecciona la pagina--</option>
-                    <option
-                      v-for="(page, index) in pages"
-                      :value="page.idPage"
-                      :key="index"
-                    >
-                      {{ page.pageName }}
-                    </option>
-                  </select>
+                  />
                   <button @click="removeItem(index)" class="px-3">
                     <oh-vue-icon
                       scale="1.25"
@@ -238,7 +238,7 @@ const modal = ref(false);
 interface OptionI {
   optionName: string;
   optionIcon: string;
-  idPage: number;
+  path: string;
 }
 
 const { FindUser } = UseUserStore();
@@ -254,22 +254,22 @@ const options = ref<OptionI[]>([
   {
     optionName: "",
     optionIcon: "",
-    idPage: 0,
+    path: "",
   },
   {
     optionName: "",
     optionIcon: "",
-    idPage: 0,
+    path: "",
   },
   {
     optionName: "",
     optionIcon: "",
-    idPage: 0,
+    path: "",
   },
 ]);
 
 const addInput = () => {
-  options.value.push({ optionName: "", optionIcon: "", idPage: 0 });
+  options.value.push({ optionName: "", optionIcon: "", path: "" });
 };
 const removeItem = (i: number) => {
   if (i > -1) {
