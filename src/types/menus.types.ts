@@ -9,7 +9,7 @@ export interface CreateMenuResponse {
 
 export interface MenusOptions extends MenuI {
   user: UserI;
-  options: Option[];
+  options: MenuOptionI[];
 }
 
 export interface MenuI {
@@ -17,4 +17,20 @@ export interface MenuI {
   idUser: number;
   updatedAt: string;
   createdAt: string;
+}
+
+export interface MenuOptionI {
+  idMenuOptions: number;
+  createdAt: string;
+  updatedAt: string;
+  idMenu: number;
+  idOption: number;
+  option: {
+    idOption: number;
+    optionName: string;
+    optionIcon: string;
+    path: string;
+    createdAt: string;
+    updatedAt: string;
+  };
 }

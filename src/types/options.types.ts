@@ -14,3 +14,8 @@ export interface Option {
   updatedAt: string;
   path:string
 }
+
+export interface OptionsMenu {
+  idMenu: number;
+  idOption: number;
+}

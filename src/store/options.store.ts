@@ -21,6 +21,7 @@ export const UseOptionsStore = defineStore("options", {
       const { ok } = await save_option(values);
       if (ok) {
         toast.success("Se guardo la opcion con exito");
+        await this.GetOptions()
       } else {
         toast.error("Error al guardar opcion");
       }
